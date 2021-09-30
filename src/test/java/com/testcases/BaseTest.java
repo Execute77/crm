@@ -8,16 +8,16 @@ public class BaseTest {
 
     WebDriver driver;
 
-    @BeforeTest
+    @BeforeMethod
     public void setUp(){
         System.out.println("Before test");
-        driver =  DriverFactory.startApplication(driver, "Chrome", "https://freecrm.com/");
+        driver = DriverFactory.getDriver("Chrome", "https://freecrm.com/");
     }
 
     @AfterTest
     public void tearDown(){
         System.out.println("After test");
-       // DriverFactory.quitBrowser(driver);
+        DriverFactory.quitBrowser(driver);
     }
 
     @BeforeMethod

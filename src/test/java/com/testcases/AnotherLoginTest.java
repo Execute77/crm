@@ -9,7 +9,6 @@ public class AnotherLoginTest extends BaseTest {
     @Test
     public void loginTest() throws InterruptedException {
 
-        driver.get("https://freecrm.com/");
         HomePage homePage = new HomePage(driver);
 
         LoginPage loginPage = homePage.clickLogin();

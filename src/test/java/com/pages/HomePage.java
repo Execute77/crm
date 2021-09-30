@@ -14,6 +14,7 @@ public class HomePage {
 
     public HomePage(WebDriver driver){
         this.driver = driver;
+        driver.get("https://freecrm.com/");
         PageFactory.initElements(driver, this);
     }
 

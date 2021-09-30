@@ -7,7 +7,9 @@ import java.util.concurrent.TimeUnit;
 
 public class DriverFactory {
 
-    public static WebDriver startApplication(WebDriver driver, String browserName, String url) {
+    static WebDriver driver;
+
+    private static void startBrowser(String browserName) {
 
         if (browserName.equals("Chrome")) {
             System.setProperty("webdriver.chrome.driver", "/Users/vijaykumarb/Documents/Products/ACM2/ACM2.0/ChromeDriver/chromedriver");
@@ -20,13 +22,17 @@ public class DriverFactory {
 
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get("https://freecrm.com/");
-
-        return driver;
     }
 
     public static void quitBrowser(WebDriver driver) {
         driver.quit();
+    }
+
+    public static WebDriver getDriver(String browserName, String url){
+        if(driver == null){
+            startBrowser(browserName);
+        }
+        return driver;
     }
 
 }
