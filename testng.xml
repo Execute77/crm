@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+    <suite name="All Test Suite">
+        <test verbose="2" preserve-order="true" name="/Users/vijaykumarb/Documents/AutomationQA/ui-automation/src/test/java/com/testcases/LoginTest.java">
+            <classes>
+                <class name="com.testcases.LoginTest">
+                    <methods><include name="loginTest"/></methods>
+                </class>
+                <class name="com.testcases.AnotherLoginTest">
+                    <methods><include name="loginTest"/></methods>
+                </class>
+            </classes>
+        </test>
+    </suite>
