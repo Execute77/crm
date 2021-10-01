@@ -17,7 +17,7 @@ public class BaseTest {
     @BeforeSuite
     public void initialSetup(){
         config = new ConfigFactory();
-       new TestDataProvider().getWorkbook();
+//       new TestDataProvider().getWorkbook();
     }
 
     @BeforeMethod
@@ -30,7 +30,6 @@ public class BaseTest {
     public void tearDown(){
         DriverFactory.quitBrowser(driver);
     }
-
 
 
 //    @BeforeMethod

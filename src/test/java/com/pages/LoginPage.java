@@ -27,8 +27,8 @@ public class LoginPage {
     }
 
     public void login() {
-        email.sendKeys(testDataProvider.getWorkbook().getSheet("Login").getRow(0).getCell(0).getStringCellValue());
-        password.sendKeys(testDataProvider.getWorkbook().getSheet("Login").getRow(0).getCell(1).getStringCellValue());
+        email.sendKeys(testDataProvider.getStringData("Login", 0,0));
+        password.sendKeys(testDataProvider.getStringData("Login", 0,1));
         submitButton.click();
     }
 }

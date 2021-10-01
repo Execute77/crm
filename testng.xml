@@ -6,9 +6,9 @@
                 <class name="com.testcases.LoginTest">
                     <methods><include name="loginTest"/></methods>
                 </class>
-                <class name="com.testcases.AnotherLoginTest">
-                    <methods><include name="loginTest"/></methods>
-                </class>
+<!--                <class name="com.testcases.AnotherLoginTest">-->
+<!--                    <methods><include name="loginTest"/></methods>-->
+<!--                </class>-->
             </classes>
         </test>
     </suite>

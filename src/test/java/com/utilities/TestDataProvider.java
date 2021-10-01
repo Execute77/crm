@@ -11,7 +11,6 @@ public class TestDataProvider {
     final String testDataFilePath = "/src/test/resources/TestData.xlsx";
 
     private void loadTestData(){
-
         try {
             File file = new File(System.getProperty("user.dir") + testDataFilePath);
             FileInputStream fis = new FileInputStream(file);
@@ -25,6 +24,10 @@ public class TestDataProvider {
         if(wb == null)
             loadTestData();
         return wb;
+    }
+
+    public String getStringData(String sheetName, int row, int column){
+        return getWorkbook().getSheet(sheetName).getRow(row).getCell(column).getStringCellValue();
     }
 
 }
