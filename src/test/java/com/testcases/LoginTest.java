@@ -12,9 +12,7 @@ public class LoginTest extends BaseTest {
     @Test
     public void loginTest() throws InterruptedException {
 
-        driver.get("https://freecrm.com/");
         HomePage homePage = new HomePage(driver);
-
         LoginPage loginPage = homePage.clickLogin();
         loginPage.login();
 
@@ -22,7 +20,6 @@ public class LoginTest extends BaseTest {
 
         System.out.println("The page title is " + driver.getTitle());
     }
-
     @Test
     public void sample1(){
         System.out.println("The message 1");

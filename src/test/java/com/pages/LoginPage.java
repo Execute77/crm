@@ -1,5 +1,6 @@
 package com.pages;
 
+import com.utilities.TestDataProvider;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,6 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 public class LoginPage {
 
     WebDriver driver;
+    TestDataProvider testDataProvider = new TestDataProvider();
 
     @FindBy(name = "email")
     private WebElement email;
@@ -25,9 +27,8 @@ public class LoginPage {
     }
 
     public void login() {
-
-        email.sendKeys("admin@gmail.com");
-        password.sendKeys("admin");
+        email.sendKeys(testDataProvider.getWorkbook().getSheet("Login").getRow(0).getCell(0).getStringCellValue());
+        password.sendKeys(testDataProvider.getWorkbook().getSheet("Login").getRow(0).getCell(1).getStringCellValue());
         submitButton.click();
     }
 }
