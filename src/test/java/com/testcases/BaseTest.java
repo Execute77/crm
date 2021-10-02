@@ -21,14 +21,16 @@ public class BaseTest {
     @BeforeSuite
     public void initialSetup() {
         config = new ConfigFactory();
-//        driver = DriverFactory.getDriver(config.getBrowser(), config.getURL());
+//        driver = DriverFactory.getDriver(config.getBrowser());
     }
 
     @BeforeMethod
     public void setUp() {
         System.out.println("Before test");
-        driver = DriverFactory.getDriver(config.getBrowser(), config.getURL());
 //        driver = DriverFactory.getDriver(config.getBrowser(), config.getURL());
+//        driver = DriverFactory.getDriver(config.getBrowser(), config.getURL());
+        driver = DriverFactory.getDriver(config.getBrowser());
+
     }
 
 //    @AfterTest

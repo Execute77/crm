@@ -1,5 +1,6 @@
 package com.pages;
 
+import com.utilities.ConfigFactory;
 import com.utilities.DriverFactory;
 import org.openqa.selenium.NoSuchSessionException;
 import org.openqa.selenium.WebDriver;
@@ -13,21 +14,15 @@ public class HomePage {
 
     @FindBy(xpath = "//*[text() = 'Log In']")
     private WebElement loginLink;
+    ConfigFactory configFactory = new ConfigFactory();
 
-    public HomePage(WebDriver lDriver){
-        try {
-            driver = lDriver;
-            driver.get("https://freecrm.com/");
-        }catch (NoSuchSessionException e){
-            driver = DriverFactory.createDriver();
-            driver.get("https://freecrm.com/");
-        }
+    public HomePage(WebDriver lDriver) {
+        driver = lDriver;
+        driver.get(configFactory.getURL());
         PageFactory.initElements(driver, this);
-
-
     }
 
-    public LoginPage clickLogin(){
+    public LoginPage clickLogin() {
         loginLink.click();
         return new LoginPage(driver);
     }
