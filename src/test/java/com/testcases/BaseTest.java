@@ -21,19 +21,20 @@ public class BaseTest {
     @BeforeSuite
     public void initialSetup() {
         config = new ConfigFactory();
-        driver = DriverFactory.getDriver(config.getBrowser(), config.getURL());
+//        driver = DriverFactory.getDriver(config.getBrowser(), config.getURL());
     }
 
     @BeforeMethod
     public void setUp() {
         System.out.println("Before test");
+        driver = DriverFactory.getDriver(config.getBrowser(), config.getURL());
 //        driver = DriverFactory.getDriver(config.getBrowser(), config.getURL());
     }
 
-    @AfterTest
-    public void tearDown() {
-        DriverFactory.quitBrowser(driver);
-    }
+//    @AfterTest
+//    public void tearDown() {
+//        DriverFactory.quitBrowser(driver);
+//    }
 
 
 //    @BeforeMethod
@@ -41,8 +42,9 @@ public class BaseTest {
 //        System.out.println("Before method driver is "+driver);
 //    }
 //
-//    @AfterMethod
-//    public void afterMethod(){
-//        System.out.println("After method driver is - "+driver);
-//    }
+    @AfterMethod
+    public void afterMethod(){
+        System.out.println("After method driver is - "+driver);
+        DriverFactory.quitBrowser(driver);
+    }
 }

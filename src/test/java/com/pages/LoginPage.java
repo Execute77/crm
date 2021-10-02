@@ -22,8 +22,8 @@ public class LoginPage {
     @FindBy(xpath = "//*[contains(@class, 'submit button')]")
     private WebElement submitButton;
 
-    LoginPage(WebDriver driver) {
-        this.driver = driver;
+    LoginPage(WebDriver lDriver) {
+        driver = lDriver;
         PageFactory.initElements(driver, this);
     }
 
@@ -31,5 +31,9 @@ public class LoginPage {
         email.sendKeys(testDataProvider.getStringData("Login", 0,0));
         password.sendKeys(testDataProvider.getStringData("Login", 0,1));
         submitButton.click();
+    }
+
+    public String getTitle(){
+        return driver.getTitle();
     }
 }

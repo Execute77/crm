@@ -9,7 +9,7 @@ public class DriverFactory {
 
     static WebDriver driver;
 
-    private static void startBrowser(String browserName) {
+    private static WebDriver startBrowser(String browserName) {
 
         if (browserName.equals("chrome")) {
             System.setProperty("webdriver.chrome.driver", "/Users/vijaykumarb/Documents/Products/ACM2/ACM2.0/ChromeDriver/chromedriver");
@@ -22,6 +22,7 @@ public class DriverFactory {
 
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        return driver;
     }
 
     public static void quitBrowser(WebDriver driver) {
@@ -33,6 +34,11 @@ public class DriverFactory {
             startBrowser(browserName);
         }
         return driver;
+    }
+
+    public static WebDriver createDriver(){
+      startBrowser(new ConfigFactory().getBrowser());
+      return driver;
     }
 
 }
