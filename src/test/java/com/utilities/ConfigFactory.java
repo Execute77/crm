@@ -17,4 +17,5 @@ public class ConfigFactory {
     public String getURL(){
         return config.getProperty("url");
     }
+
 }

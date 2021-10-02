@@ -2,6 +2,7 @@ package com.testcases;
 
 import com.pages.HomePage;
 import com.pages.LoginPage;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class AnotherLoginTest extends BaseTest {
@@ -17,8 +18,7 @@ public class AnotherLoginTest extends BaseTest {
 
         Thread.sleep(4000);
 
-        logger.pass("The title validated");
-        System.out.println("The page title is " + driver.getTitle());
+        Assert.assertEquals(loginPage.getTitle(), "Cogmento CRM");
 
     }
 

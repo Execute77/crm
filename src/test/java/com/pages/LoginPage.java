@@ -2,6 +2,7 @@ package com.pages;
 
 import com.utilities.SeleniumHelper;
 import com.utilities.TestDataProvider;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,15 +22,21 @@ public class LoginPage extends SeleniumHelper {
     @FindBy(xpath = "//*[contains(@class, 'submit button')]")
     private WebElement submitButton;
 
-    LoginPage(WebDriver driver) {
+
+    LoginPage(WebDriver lDriver) {
         super(driver);
-        this.driver = driver;
+        driver = lDriver;
         PageFactory.initElements(driver, this);
     }
+
 
     public void login() {
         enterText(email, testDataProvider.getStringData("Login", 0,0));
         enterText(password, testDataProvider.getStringData("Login", 0,1));
         click(submitButton);
+    }
+
+    public String getTitle(){
+        return driver.getTitle();
     }
 }
