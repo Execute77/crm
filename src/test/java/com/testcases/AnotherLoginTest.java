@@ -17,9 +17,10 @@ public class AnotherLoginTest extends BaseTest {
         loginPage.login();
 
         Thread.sleep(4000);
+        logger.pass("The title verified");
+
 
         Assert.assertEquals(loginPage.getTitle(), "Cogmento CRM");
-
     }
 
     @Test

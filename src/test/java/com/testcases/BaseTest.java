@@ -16,8 +16,8 @@ import java.util.Properties;
 
 public class BaseTest {
 
-    ExtentReports report;
-    ExtentTest logger;
+    static ExtentReports report;
+    static ExtentTest logger;
     static WebDriver driver;
     static ConfigFactory config;
 
@@ -41,7 +41,7 @@ public class BaseTest {
     public void tearDown() {
         DriverFactory.quitBrowser(driver);
     }
-}
+
 
     @AfterMethod
     public void afterMethod(ITestResult result) throws IOException {

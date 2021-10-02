@@ -24,11 +24,10 @@ public class LoginPage extends SeleniumHelper {
 
 
     LoginPage(WebDriver lDriver) {
-        super(driver);
+        super(lDriver);
         driver = lDriver;
         PageFactory.initElements(driver, this);
     }
-
 
     public void login() {
         enterText(email, testDataProvider.getStringData("Login", 0,0));

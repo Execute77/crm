@@ -6,6 +6,7 @@ import com.pages.LoginPage;
 import com.utilities.DriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
@@ -26,7 +27,7 @@ public class LoginTest extends BaseTest {
 
         logger.pass("The title verified");
 
-        System.out.println("The page title is " + driver.getTitle());
+        Assert.assertEquals(loginPage.getTitle(), "Cogmento CRM");
     }
 
 }
