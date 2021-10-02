@@ -1,5 +1,7 @@
 package com.utilities;
 
+import org.testng.annotations.Parameters;
+
 import java.util.Properties;
 
 public class ConfigFactory {
@@ -11,11 +13,15 @@ public class ConfigFactory {
     }
 
     public String getBrowser(){
-        return config.getProperty("browser");
+        if(System.getProperty("browserFromMaven") == null)
+            return config.getProperty("browser");
+        return System.getProperty("browserFromMaven");
     }
 
     public String getURL(){
-        return config.getProperty("url");
+        if(System.getProperty("urlToBeTested") == null)
+            return config.getProperty("url");
+        return System.getProperty("urlToBeTested");
     }
 
 }

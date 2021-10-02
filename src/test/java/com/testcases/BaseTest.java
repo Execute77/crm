@@ -9,6 +9,7 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.utilities.*;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
+import org.testng.Reporter;
 import org.testng.annotations.*;
 
 import java.io.IOException;
@@ -23,6 +24,10 @@ public class BaseTest {
 
     @BeforeSuite
     public void initialSetup(){
+
+        System.out.println("The browser from maven is - "+System.getProperty("browserFromMaven"));
+        System.out.println("The url from maven is - "+System.getProperty("urlToBeTested"));
+
         config = new ConfigFactory();
         ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(System.getProperty("user.dir")+"/reports/testReport.html");
         report = new ExtentReports();
