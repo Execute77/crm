@@ -1,5 +1,6 @@
 package com.pages;
 
+import com.utilities.SeleniumHelper;
 import com.utilities.TestDataProvider;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -7,9 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage {
+public class LoginPage extends SeleniumHelper {
 
-    WebDriver driver;
     TestDataProvider testDataProvider = new TestDataProvider();
 
     @FindBy(name = "email")
@@ -22,13 +22,14 @@ public class LoginPage {
     private WebElement submitButton;
 
     LoginPage(WebDriver driver) {
+        super(driver);
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
     public void login() {
-        email.sendKeys(testDataProvider.getStringData("Login", 0,0));
-        password.sendKeys(testDataProvider.getStringData("Login", 0,1));
-        submitButton.click();
+        enterText(email, testDataProvider.getStringData("Login", 0,0));
+        enterText(password, testDataProvider.getStringData("Login", 0,1));
+        click(submitButton);
     }
 }

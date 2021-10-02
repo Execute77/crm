@@ -9,6 +9,7 @@ public class AnotherLoginTest extends BaseTest {
     @Test
     public void loginTest() throws InterruptedException {
 
+        logger = report.createTest("Another Test");
         HomePage homePage = new HomePage(driver);
 
         LoginPage loginPage = homePage.clickLogin();
@@ -16,6 +17,7 @@ public class AnotherLoginTest extends BaseTest {
 
         Thread.sleep(4000);
 
+        logger.pass("The title validated");
         System.out.println("The page title is " + driver.getTitle());
 
     }
