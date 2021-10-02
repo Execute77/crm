@@ -4,30 +4,34 @@ import com.utilities.ConfigFactory;
 import com.utilities.ConfigProvider;
 import com.utilities.DriverFactory;
 import com.utilities.TestDataProvider;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
 
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 public class BaseTest {
 
-    WebDriver driver;
-    ConfigFactory config;
+    static WebDriver driver;
+    static ConfigFactory config;
+    static XSSFWorkbook testData;
 
     @BeforeSuite
-    public void initialSetup(){
+    public void initialSetup() {
         config = new ConfigFactory();
-//       new TestDataProvider().getWorkbook();
-    }
-
-    @BeforeMethod
-    public void setUp(){
-        System.out.println("Before test");
         driver = DriverFactory.getDriver(config.getBrowser(), config.getURL());
     }
 
+    @BeforeMethod
+    public void setUp() {
+        System.out.println("Before test");
+//        driver = DriverFactory.getDriver(config.getBrowser(), config.getURL());
+    }
+
     @AfterTest
-    public void tearDown(){
+    public void tearDown() {
         DriverFactory.quitBrowser(driver);
     }
 

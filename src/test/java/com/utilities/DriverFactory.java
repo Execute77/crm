@@ -11,7 +11,7 @@ public class DriverFactory {
 
     private static void startBrowser(String browserName) {
 
-        if (browserName.equals("Chrome")) {
+        if (browserName.equals("chrome")) {
             System.setProperty("webdriver.chrome.driver", "/Users/vijaykumarb/Documents/Products/ACM2/ACM2.0/ChromeDriver/chromedriver");
             driver = new ChromeDriver();
         } else if (browserName.equals("Firefox")) {
