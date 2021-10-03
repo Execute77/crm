@@ -33,6 +33,7 @@ public class BaseTest {
         report = new ExtentReports();
         report.attachReporter(htmlReporter);
         driver = DriverFactory.getDriver(config.getBrowser());
+
     }
 
 //    @BeforeMethod
